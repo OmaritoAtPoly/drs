@@ -1,0 +1,118 @@
+{
+  "name": "ecliniqprofesionlweb",
+  "homepage": "https://ecliniq.com/medico",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^1.3.13",
+    "@date-io/moment": "1.3.13",
+    "@fullcalendar/core": "^5.5.1",
+    "@fullcalendar/daygrid": "^5.5.0",
+    "@fullcalendar/interaction": "^5.5.0",
+    "@fullcalendar/list": "^5.5.0",
+    "@fullcalendar/react": "^5.5.0",
+    "@fullcalendar/timegrid": "^5.5.1",
+    "@material-ui/core": "^4.11.1",
+    "@material-ui/lab": "^4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.2.10",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.165",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/yup": "^0.29.9",
+    "date-fns": "^2.16.1",
+    "dotenv": "^8.2.0",
+    "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
+    "formik": "^2.2.5",
+    "google-maps-react": "^2.0.6",
+    "html-to-draftjs": "^1.5.0",
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-draft-wysiwyg": "^1.14.5",
+    "react-geocode": "^0.2.2",
+    "react-google-maps": "^9.4.5",
+    "react-google-places-autocomplete": "^3.0.0",
+    "react-multi-carousel": "^2.6.1",
+    "react-pin-field": "^1.0.6",
+    "react-places-autocomplete": "^7.3.0",
+    "react-query": "^2.26.4",
+    "react-query-devtools": "^2.6.3",
+    "react-router-dom": "^5.2.0",
+    "react-router-hash-link": "^2.3.1",
+    "react-scripts": "4.0.1",
+    "react-waypoint": "^9.0.3",
+    "shortid": "^2.2.16",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4",
+    "written-number": "^0.9.1",
+    "yup": "^0.31.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "prettier": "prettier --write src/*.tsx",
+    "lint": "eslint src/*.tsx --fix",
+    "format": "yarn lint && yarn prettier",
+    "tsc": "tsc"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && yarn tsc"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,jsx,ts,tsx}": "eslint --cache --fix",
+    "*.lint:fix": "prettier --write"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "react-app",
+      "react-app/jest"
+    ],
+    "env": {
+      "browser": true
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/draftjs-to-html": "^0.8.0",
+    "@types/html-to-draftjs": "^1.4.0",
+    "@types/jquery": "^3.5.5",
+    "@types/react-draft-wysiwyg": "^1.13.0",
+    "@types/react-geocode": "^0.2.0",
+    "@types/react-places-autocomplete": "^7.2.6",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/react-router-hash-link": "^1.2.1",
+    "@types/shortid": "^0.0.29",
+    "@typescript-eslint/eslint-plugin": "^4.9.0",
+    "@typescript-eslint/parser": "^4.9.0",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-plugin-jest": "^24.1.3",
+    "husky": "^4.3.0",
+    "lint-staged": "^10.5.2",
+    "prettier": "^2.2.1"
+  }
+}

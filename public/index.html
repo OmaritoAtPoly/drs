@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.paymentez.com/ccapi/sdk/payment_stable.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBO9l2IuZeSX1RzYex937N6Vw8MN9tc_hE&language=es&libraries=places"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.paymentez.com/ccapi/sdk/payment_stable.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <!--
+      manifest.json provides metadata used when your web app is installed on a
+      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+    -->
+    <style>
+      .hide-paymentez-dialog {
+        display: none;
+        /* width: 0px;
+        height: 0px;
+        opacity: 0; */
+      }
+    </style>
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <!-- <link href="https://cdn.paymentez.com/ccapi/sdk/payment_stable.min.css" rel="stylesheet" type="text/css" /> -->
+    <!-- <script src="https://cdn.paymentez.com/ccapi/sdk/payment_stable.min.js" charset="UTF-8"></script> -->
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.png" or "favicon.png", "%PUBLIC_URL%/favicon.png" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>eCLINIQ</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div
+      role="presentation"
+      class="MuiDialog-root hide-paymentez-dialog"
+      id="hide-paymentez-dialog-id"
+      style="position: fixed; z-index: 2300; inset: 0px"
+    >
+      <div
+        class="MuiBackdrop-root hide-paymentez-dialog"
+        aria-hidden="true"
+        style="
+          opacity: 1;
+          transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        "
+      ></div>
+      <div tabindex="0" data-test="sentinelStart"></div>
+      <div
+        class="MuiDialog-container MuiDialog-scrollPaper"
+        role="none presentation"
+        tabindex="-1"
+        style="
+          opacity: 1;
+          transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+        "
+      >
+        <div
+          style="padding: 20px"
+          class="MuiPaper-root MuiDialog-paper makeStyles-container-88 MuiDialog-paperScrollPaper MuiDialog-paperWidthSm MuiPaper-elevation24 MuiPaper-rounded"
+          role="dialog"
+          aria-labelledby="labelled-dialog"
+        >
+          <div class="MuiDialogTitle-root" id="labelled-dialog">
+            <h2 class="MuiTypography-root MuiTypography-h6">
+              <div class="makeStyles-titleContainer-47">
+                <div class="makeStyles-titleStyle-46">
+                  <h5 class="MuiTypography-root MuiTypography-h5">
+                    Agregar tarjeta
+                  </h5>
+                </div>
+              </div>
+            </h2>
+          </div>
+          <hr
+            class="MuiDivider-root makeStyles-dividerStyle-48"
+            id="divider-section"
+          />
+          <div class="MuiDialogContent-root">
+            <div class="panel">
+              <form id="add-card-form">
+                <div
+                  class="payment-form"
+                  id="my-card"
+                  data-capture-name="true"
+                ></div>
+                <div class="btn-container">
+                  <button
+                    id="cancel-button"
+                    style="margin-right: 20px"
+                    class="btn"
+                    onclick="cancelButton()"
+                  >
+                    Cancelar
+                  </button>
+                  <button id="submit-button" class="btn">
+                    Guardar Tarjeta
+                  </button>
+                </div>
+                <br />
+                <div id="messages"></div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div tabindex="0" data-test="sentinelEnd"></div>
+    </div>
+    <div id="root"></div>
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-1.11.3.min.js"
+    charset="UTF-8"
+  ></script>
+  <script
+    src="https://cdn.paymentez.com/ccapi/sdk/payment_stable.min.js"
+    charset="UTF-8"
+  ></script>
+  <script></script>
+
+  <script>
+    function cancelButton(button) {
+      $("#hide-paymentez-dialog-id").addClass("hide-paymentez-dialog");
+    }
+    $(function () {
+      Payment.init("stg", "TPP3-EC-CLIENT", "ZfapAKOk4QFXheRNvndVib9XU3szzg");
+
+      var form = $("#add-card-form");
+      var submitButton = form.find("#submit-button");
+      var submitInitialText = submitButton.text();
+
+      $("#add-card-form").submit(function (e) {
+        var myCard = $("#my-card");
+        $("#messages").text("");
+        var cardToSave = myCard.PaymentForm("card");
+        if (cardToSave == null) {
+          $("#messages").text("Datos Inválidos");
+        } else {
+          submitButton.attr("disabled", "disabled").text("Procesando...");
+          var uid = localStorage.getItem("USER_LEGAL_ID_KEY_STORE");
+          var email = localStorage.getItem("USER_EMAIL_KEY_STORE");
+          Payment.addCard(uid, email, cardToSave, successHandler, errorHandler);
+        }
+        e.preventDefault();
+      });
+
+      var successHandler = function (cardResponse) {
+        if (cardResponse.card.status === "valid") {
+          const card = cardResponse.card;
+          const newCard = {
+            holder: card.holder || "",
+            number: card.number,
+            bin: card.bin,
+            expiryMonth: card.expiry_month,
+            expiryYear: card.expiry_year,
+            code: card.code || "",
+            token: card.token,
+            type: card.type,
+            status: card.status,
+            transactionReference: card.transaction_reference,
+            origin: card.origin,
+            message: card.message,
+          };
+          // const API_URL = "https://0621fcb03084.ngrok.io/api/v1";
+          const API_URL = "https://camilo.touwolf.com:443/api/v1";
+          const token = localStorage.getItem("USER_TOKEN_KEY_STORE");
+          fetch(`${API_URL}/professional/payment/cards`, {
+            method: "POST",
+            body: JSON.stringify(newCard),
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+              "X-Api-Client": "Y29tLnRvdXdvbGYuZWNsaW5pcS5hcGkudGVzdA==",
+              Authorization: `Bearer ${token}`,
+            },
+          })
+            .then((res) => {
+              res.json();
+              $("#hide-paymentez-dialog-id").addClass("hide-paymentez-dialog");
+              localStorage.setItem("REFETCH_CARDS_KEY_STORE", "true");
+            })
+            .catch((error) => console.error("Error:", error));
+        } else if (cardResponse.card.status === "review") {
+          $("#messages").html("Su tarjeta está siendo revisada");
+        } else if (cardResponse.card.status === "rejected") {
+          $("#messages").html("Su tarjeta fue rechazada");
+        }
+        submitButton.removeAttr("disabled");
+        submitButton.text(submitInitialText);
+      };
+
+      var errorHandler = function (err) {
+        let msj = "Ha ocurrido un error";
+        if (err.error.type.includes("Card already added")) {
+          msj = "La tarjeta ya fue agregada";
+        }
+        $("#messages").html(msj);
+        submitButton.removeAttr("disabled");
+        submitButton.text(submitInitialText);
+      };
+    });
+  </script>
+</html>

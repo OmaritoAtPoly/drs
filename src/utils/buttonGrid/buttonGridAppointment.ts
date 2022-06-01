@@ -1,0 +1,103 @@
+import { IconNames } from "../../components/Icon/IconNames";
+import STRINGS from "../strings";
+
+// eslint-disable-next-line import/prefer-default-export
+export const buttonActionsAppointment = [
+  {
+    index: 0,
+    popOver: true,
+    notificationNumber: 0,
+    iconName: "twoUser" as IconNames,
+    iconHeight: 13,
+    iconWidth: 13,
+    toolTipTitle: STRINGS.buttonGrid.INTER,
+    popOverAction: {
+      firstAction: STRINGS.buttonGrid.NEW_INTER_CONSULT,
+      secondAction: STRINGS.buttonGrid.HISTORICAL_INTER_CONSULT,
+    },
+  },
+  {
+    index: 1,
+    popOver: false,
+    notificationNumber: 0,
+    iconName: "leftSheet" as IconNames,
+    toolTipTitle: STRINGS.buttonGrid.RESULTS,
+    iconHeight: 13,
+    iconWidth: 13,
+  },
+  {
+    index: 2,
+    popOver: false,
+    notificationNumber: 0,
+    iconName: "shield" as IconNames,
+    toolTipTitle: STRINGS.buttonGrid.INSURANCES,
+    iconHeight: 13,
+    iconWidth: 13,
+  },
+  {
+    index: 3,
+    popOver: true,
+    notificationNumber: 0,
+    iconName: "form" as IconNames,
+    iconHeight: 13,
+    iconWidth: 13,
+    toolTipTitle: STRINGS.buttonGrid.CERTIFICATE,
+    popOverAction: {
+      firstAction: STRINGS.certificates.NEW_CERTIFICATE,
+      secondAction: STRINGS.certificates.CERTIFICATE_HISTORY,
+    },
+  },
+  {
+    index: 4,
+    popOver: false,
+    notificationNumber: 0,
+    toolTipTitle: STRINGS.buttonGrid.FILES,
+    iconName: "folder" as IconNames,
+    iconHeight: 13,
+    iconWidth: 13,
+  },
+  {
+    index: 5,
+    popOver: true,
+    notificationNumber: 0,
+    iconName: "squaredrBox" as IconNames,
+    iconHeight: 13,
+    iconWidth: 13,
+    toolTipTitle: STRINGS.procedure.PROCEDURE,
+    popOverAction: {
+      firstAction: STRINGS.procedure.NEW_PROCEDURE,
+      secondAction: STRINGS.procedure.PROCEDURE_HISTORY,
+    },
+  },
+  {
+    index: 5,
+    popOver: false,
+    notificationNumber: 0,
+    iconName: "rigthSheet" as IconNames,
+    toolTipTitle: STRINGS.buttonGrid.CONSENT,
+    iconHeight: 13,
+    iconWidth: 13,
+  },
+  // {
+  //   index: 6,
+  //   popOver: false,
+  //   notificationNumber: 0,
+  //   iconName: "squaredrBox" as IconNames,
+  //   toolTipTitle: STRINGS.newConsult.PROCESS,
+  //   iconHeight: 13,
+  //   iconWidth: 13,
+  // },
+  {
+    index: 7,
+    popOver: true,
+    notificationNumber: 0,
+    iconName: "checkList" as IconNames,
+    iconHeight: 13,
+    iconWidth: 13,
+    toolTipTitle: STRINGS.generals.INFORMS,
+    popOverAction: {
+      firstAction: STRINGS.reports.NEW_REPORT,
+      secondAction: STRINGS.reports.REPORTS_HISTORY,
+    },
+  },
+];

@@ -1,0 +1,133 @@
+.MuiAutocomplete-root .MuiFormControl-marginNormal {
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+/* styling accordion */
+.MuiAccordionSummary-content .MuiTypography-body1 {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: #5e17eb !important;
+}
+
+#AccordionSummaryDisable .MuiTypography-body1 {
+  font-size: 1rem !important;
+  font-weight: bold !important;
+  color: #616161 !important;
+}
+/* end styling accordion */
+
+#containerGoogleAutocomplete input:focus {
+  outline: none;
+  font-family: "Nunito";
+}
+
+.pac-container {
+  z-index: 1451 !important;
+}
+
+#primary-button-map p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#primary-button-map-container .makeStyles-wrapper-11 {
+  margin: 0px !important;
+  width: 100%;
+}
+
+.panel {
+  padding-top: 20px;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.btn {
+  width: 150px;
+  background: #5e17eb; /* Old browsers */
+  color: #fff;
+  display: block;
+  border: 1px solid rgba(46, 86, 153, 0.0980392);
+  border-bottom-color: rgba(46, 86, 153, 0.4);
+  border-top: 0;
+  border-radius: 4px;
+  font-size: 15px;
+  text-shadow: rgba(46, 86, 153, 0.298039) 0px -1px 0px;
+  line-height: 34px;
+  font-weight: bold;
+  display: block;
+  margin-top: 20px;
+  font-family: "Nunito", sans-serif !important;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.error-style {
+  color: #f44336;
+  font-size: 12px !important;
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+/* styling GooglePlacesAutocomplete */
+/* disable box-shadow */
+.css-1ub98xy-control {
+  box-shadow: none !important;
+}
+/* set font style */
+.css-1uccc91-singleValue {
+  font-size: 16px;
+  font-family: "Nunito";
+}
+/* center search icon */
+#containerGoogleAutocomplete .makeStyles-wrapper-11 {
+  margin-top: 5px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-bottom: 0px;
+}
+/* hide selector icon */
+.css-tlfecz-indicatorContainer {
+  display: none !important;
+  /* padding: 0px !important; */
+}
+.css-1okebmr-indicatorSeparator {
+  display: none !important;
+}
+.css-1hb7zxy-IndicatorsContainer {
+  display: none !important;
+  /* padding: 0px !important; */
+}
+.css-1hb7zxy-IndicatorsSeparator {
+  display: none !important;
+}
+/* end hide selector icon */
+/* end styling GooglePlacesAutocomplete */
+
+/* styling all textarea */
+textarea {
+  font-size: 14px;
+  font-family: "Nunito";
+}
+/* end styling textarea */
+
+/* styling hide icon in Calendar in home*/
+#calendar-home-id .MuiIconButton-root {
+  display: none !important;
+}
+/* end */
+
+/* styling truncate in editor*/
+.truncateEditor {
+}
+.truncateEditor .public-DraftEditor-content {
+  height: 60px !important;
+}
+/* end */
